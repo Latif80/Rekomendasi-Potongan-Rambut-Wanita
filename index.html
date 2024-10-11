@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Potongan Rambut</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #368bc4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #080808;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .bentuk-wajah-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .bentuk-wajah-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #16e0e7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            min-width: 180px;
+        }
+
+        .bentuk-wajah-btn:hover {
+            background-color: #f7f0f5;
+            transform: translateY(-2px);
+        }
+
+        .bentuk-wajah-btn.active {
+            background-color: #d9f53b;
+            color: white;
+            box-shadow: 0 2px 10px rgba(10, 10, 10, 0.3);
+        }
+
+        .rekomendasi-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fdfdff;
+            box-shadow: 0 2px 15px hwb(0 0% 100% / 0.102);
+        }
+
+        .rekomendasi-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+         fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .deskripsi {
+            margin-bottom: 30px;
+            color: #0c0c0c;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .rekomendasi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 10px;
+        }
+
+        .rekomendasi-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rekomendasi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .rekomendasi-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .rekomendasi-card h3 {
+            padding: 20px 15px 10px;
+            color: #333;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .rekomendasi-card p {
+            padding: 0 15px 20px;
+            color: #666;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .bentuk-wajah-btn {
+                width: calc(50% - 10px);
+                min-width: unset;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rekomendasi Potongan Rambut</h1>
+        
+        <div class="bentuk-wajah-container">
+            <button class="bentuk-wajah-btn" onclick="tampilkanRekomendasi('oval')">Wajah Oval</button>
+            <button class="bentuk-wajah-btn" onclick="tampilkanRekomendasi('bulat')">Wajah Bulat</button>
+            <button class="bentuk-wajah-btn" onclick="tampilkanRekomendasi('persegi')">Wajah Persegi</button>
+            <button class="bentuk-wajah-btn" onclick="tampilkanRekomendasi('hati')">Wajah Hati</button>
+            <button class="bentuk-wajah-btn" onclick="tampilkanRekomendasi('panjang')">Wajah Panjang</button>
+        </div>
+
+        <div id="rekomendasi-oval" class="rekomendasi-container">
+            <h2 class="deskripsi">Rekomendasi untuk Wajah Oval</h2>
+            <p class="deskripsi">Wajah oval adalah bentuk wajah yang paling fleksibel untuk berbagai gaya rambut. Anda dapat mencoba berbagai gaya dengan percaya diri!</p>
+            <div class="rekomendasi-grid">
+                <div class="rekomendasi-card">
+                    <img src="Img/Layerd Cuts.jpg" alt="Layerd Cuts">
+                    <h3>Layerd Cuts</h3>
+                    <p>Membingkai wajah dengan sempurna dan memberikan dimensi yang menarik</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/Bob.jpg" alt="Bob">
+                    <h3>Bob</h3>
+                    <p>Memberikan tampilan modern dan chic yang cocok untuk segala suasana</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/Bangs.jpg" alt="Bangs">
+                    <h3>Bangs</h3>
+                    <p>Menonjolkan fitur wajah dengan sempurna dan memberikan kesan manis</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rekomendasi-bulat" class="rekomendasi-container">
+            <h2 class="deskripsi">Rekomendasi untuk Wajah Bulat</h2>
+            <p class="deskripsi">Untuk wajah bulat, pilih gaya yang membuat wajah terlihat lebih panjang dan ramping.</p>
+            <div class="rekomendasi-grid">
+                <div class="rekomendasi-card">
+                    <img src="Img/WolfCut.jpg" alt="Wolf Cut">
+                    <h3>Wolf Cut</h3>
+                    <p>Memberikan ilusi wajah lebih panjang dan menonjolkan rahang</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/CurlyWavyBob.jpg" alt="Curly Wavy Bob">
+                    <h3>Curly Wavy Bob</h3>
+                    <p>Menciptakan garis tegas yang memperpanjang struktur wajah</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/Poni.jpg" alt="Poni">
+                    <h3>Poni</h3>
+                    <p>Menyeimbangkan bentuk wajah dan memberikan kesan lebih ramping</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rekomendasi-persegi" class="rekomendasi-container">
+            <h2 class="deskripsi">Rekomendasi untuk Wajah Persegi</h2>
+            <p class="deskripsi">Untuk wajah persegi, fokus pada gaya yang melunakkan garis rahang yang tegas.</p>
+            <div class="rekomendasi-grid">
+                <div class="rekomendasi-card">
+                    <img src="Img/LayerLembut.jpg" alt="Layer Lembut">
+                    <h3>Layer Lembut</h3>
+                    <p>Menciptakan kesan lembut pada garis wajah yang tegas</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/shaggycut.jpg" alt="Shaggy Cut">
+                    <h3>Shaggy Cut</h3>
+                    <p>Memberikan tekstur dan melunakkan sudut wajah</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/ponisamping.jpg" alt="Poni Samping">
+                    <h3>Poni Samping</h3>
+                    <p>Menambahkan kelembutan dan dimensi pada wajah</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rekomendasi-hati" class="rekomendasi-container">
+            <h2 class="deskripsi">Rekomendasi untuk Wajah Hati</h2>
+            <p class="deskripsi">Untuk wajah hati, pilih gaya yang menyeimbangkan dahi lebar dengan dagu yang lebih kecil.</p>
+            <div class="rekomendasi-grid">
+                <div class="rekomendasi-card">
+                    <img src="Img/mediumlength.jpg" alt="Medium Length">
+                    <h3>Medium Length</h3>
+                    <p>Menyeimbangkan proporsi wajah dengan sempurna</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/sideweptbangs.jpg" alt="Side-swept Bangs">
+                    <h3>Side-swept Bangs</h3>
+                    <p>Menutupi dahi lebar dan memberikan kesan lembut</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/longbob.jpg" alt="Long Bob">
+                    <h3>Long Bob</h3>
+                    <p>Menciptakan keseimbangan antara dahi dan dagu</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rekomendasi-panjang" class="rekomendasi-container">
+            <h2 class="deskripsi">Rekomendasi untuk Wajah Panjang</h2>
+            <p class="deskripsi">Untuk wajah panjang, pilih gaya yang menambah volume di samping untuk menyeimbangkan proporsi.</p>
+            <div class="rekomendasi-grid">
+                <div class="rekomendasi-card">
+                    <img src="Img/wavybob.jpg" alt="Wavy Bob">
+                    <h3>Wavy Bob</h3>
+                    <p>Menambah volume samping dan mempersingkat wajah</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/shortlayers.jpg" alt="Short Layers">
+                    <h3>Short Layers</h3>
+                    <p>Memberikan dimensi dan menyeimbangkan panjang wajah</p>
+                </div>
+                <div class="rekomendasi-card">
+                    <img src="Img/curlyshag.jpg" alt="Curly Shag">
+                    <h3>Curly Shag</h3>
+                    <p>Menciptakan volume dan tekstur yang menyeimbangkan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function tampilkanRekomendasi(bentuk) {
+
+            const semuaRekomendasi = document.querySelectorAll('.rekomendasi-container');
+            semuaRekomendasi.forEach(el => el.classList.remove('active'));
+            
+            const semuaTombol = document.querySelectorAll('.bentuk-wajah-btn');
+            semuaTombol.forEach(btn => btn.classList.remove('active'));
+
+            const rekomendasiTerpilih = document.getElementById('rekomendasi-' + bentuk);
+            rekomendasiTerpilih.classList.add('active');
+            event.target.classList.add('active');
+        }
+        window.onload = function() {
+            tampilkanRekomendasi('oval');
+            document.querySelector('.bentuk-wajah-btn').classList.add('active');
+        };
+    </script>
+</body>
+</html>
